@@ -1,0 +1,26 @@
+{
+  "name": "react-component-template",
+  "version": "0.0.1",
+  "description": "NPM-installable React component template ready to be Browserified",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://midevs@bitbucket.org/midevs/react-component-template.git"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+      "watchify": "^0.10.2",
+      "react": "~0.9.0",
+      "reactify": "~0.9.1"
+  },
+  "browserify": {
+      "transform": ["reactify"]
+  },
+  "scripts": {
+    "dev": "npm run watch | npm run server",
+    "watch": "watchify ./dev/main.jsx -o ./dev/dist/main.js -t reactify",
+    "server": "pushd ./dev/; python -m SimpleHTTPServer; popd"
+  }
+}
