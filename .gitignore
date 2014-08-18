@@ -2,3 +2,4 @@
 node_modules
 dev/dist/
 npm-debug.log
+func_tests/
