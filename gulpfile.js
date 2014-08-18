@@ -22,7 +22,7 @@ gulp.task('browserifyTest', function() {
 		.pipe(gulp.dest('./tests/dist'))
 })
 
-gulp.task('karmatest', function() {
+gulp.task('karmatest', ['browserify', 'browserifyTest'],  function() {
 	var testFiles = [
         'dev/dist/main.js',
         'tests/dist/*.js'

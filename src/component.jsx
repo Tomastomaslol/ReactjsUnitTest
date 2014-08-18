@@ -11,8 +11,9 @@ module.exports = ComponentName = React.createClass({
            onMouseUp: function(){}
         }
     },
-    onClick: function(){
-      console.log("CLICK CLICK CLICK CLICK");
+    onClick: function(e){
+      console.log("where is my event at ? ",  e);
+      return e;
     },
     render: function() {
         
