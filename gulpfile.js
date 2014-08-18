@@ -1,12 +1,13 @@
 var gulp = require('gulp');
 var browserify = require('gulp-browserify');
+var react = require('gulp-react');
 var karma = require('gulp-karma');
 
 gulp.task('browserify', function() {
-	return gulp.src(['./dev/main.jsx'])
+	return gulp.src('./dev/main.jsx')
 		.pipe(browserify({
 			transform: ['reactify'],
-			extensions: [ '.jsx' ],
+			extensions: [ '.js' ],
 			debug: true
 		}))
 		.pipe(gulp.dest('./dev/dist'))

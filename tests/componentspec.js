@@ -88,4 +88,62 @@ describe("component test test ",function(){
             expect(onMouseUpSpy.calls.any()).toBe(true);            
         });
     });
+
+    describe("component className",function(){
+        var componets;
+        beforeEach(function() {
+            var mountedComponent = TestUtils.renderIntoDocument(component({}), container);
+            componets = TestUtils.scryRenderedDOMComponentsWithClass(mountedComponent, mountedComponent.props.className);
+        });
+        
+        it("should add props className to element", function() {
+            expect(componets[0]).toBeDefined();       
+        });
+
+        it("should add className to parent to element", function() {
+            expect(componets[0]._mountDepth).toBe(1);       
+        });
+
+            it("should only className to one element", function() {
+            expect(componets.length).toBe(1);       
+        });
+    });
+
+    describe("component structure",function(){
+        var mountedComponent;
+        beforeEach(function() {
+            mountedComponent = TestUtils.renderIntoDocument(component({}), container);
+        });
+        // Aka do this later maybe
+        xit("should add props className to element", function() {
+           console.log('mountedComponent  :', mountedComponent._renderedChildren);
+        });
+
+    });
+
+    describe("functional click test", function(){
+        it("should change innerHtml when clicked ref=p", function(){
+            
+            var mountedComponent = TestUtils.renderIntoDocument(component({}), container);
+        
+            TestUtils.Simulate.click(mountedComponent.refs.p);
+        
+            expect(mountedComponent.refs.p.props.children).toBe("CLICK CLICK");
+        });
+
+        it("should change innerHtml when clicked ref=p and bubble event", function(){
+            var onClickSpy = jasmine.createSpy('onClickSpy');
+                
+            var mountedComponent = TestUtils.renderIntoDocument(component({
+                onClick: onClickSpy
+            }), container);
+        
+            TestUtils.Simulate.click(mountedComponent.refs.p);
+            
+            expect(mountedComponent.refs.p.props.children).toBe("CLICK CLICK");
+            expect(onClickSpy.calls.any()).toBe(true);
+
+        });
+    });
+
 });
