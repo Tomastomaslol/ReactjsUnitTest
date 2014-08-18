@@ -5,7 +5,6 @@ var React = require('react');
 module.exports = ComponentName = React.createClass({
     getDefaultProps: function() {
         return {
-
            onMouseOut: function(){},
            onMouseOver: function(){},
            onMouseDown: function(){},

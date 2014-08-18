@@ -13,6 +13,8 @@ describe("Label Test",function(){
         expect(false).toBe(false);
     });
 
+
+
     it("should work", function () {
         var mountedComponent = TestUtils.renderIntoDocument(component({
         	onClick : function(){
