@@ -11,7 +11,7 @@ describe("component test Test",function(){
     afterEach(function() {
         if (mountedComponent && mountedComponent.isMounted()) {
             // Only components with a parent will be unmounted
-            React.unmountComponentAtNode(mountedComponent.getDOMNode().parent);
+         //   React.unmountComponentAtNode(mountedComponent.getDOMNode().parent);
         }
     });
 
@@ -32,7 +32,7 @@ describe("component test Test",function(){
 
 
 
-    it("should work", function () {
+    it("should call onClick", function () {
         var onClickSpy = jasmine.createSpy('onClickSpy');
         
         var mountedComponent = TestUtils.renderIntoDocument(component({
@@ -40,9 +40,34 @@ describe("component test Test",function(){
         }), container);
 
         TestUtils.Simulate.click(mountedComponent.getDOMNode());
-        //console.log('onClickSpy.calls.any : ', onClickSpy.calls.any());
         expect(onClickSpy.calls.any()).toBe(true);
 
    });
 
+        it("should call onMouseOut", function () {
+          
+            var superSpy = jasmine.createSpy();
+            
+            var mountedComponent = TestUtils.renderIntoDocument(component({
+                onMouseDown : superSpy
+            }), container);
+            
+            TestUtils.Simulate.mouseDown(mountedComponent.getDOMNode());
+            expect(superSpy.calls.any()).toBe(true);
+            
+            
+
+    });
 });
+
+
+/*
+
+           onMouseOut: function(){},
+           onMouseOver: function(){},
+           onMouseDown: function(){},
+           onMouseUp: function(){}
+
+
+
+*/

@@ -10,7 +10,9 @@ module.exports = ComponentName = React.createClass({
           },
            onMouseOut: function(){},
            onMouseOver: function(){},
-           onMouseDown: function(){},
+           onMouseDown: function(){
+            console.log("onMouseDownon MouseDownon MouseDown");
+           },
            onMouseUp: function(){}
         }
     },
@@ -20,7 +22,7 @@ module.exports = ComponentName = React.createClass({
     render: function() {
         
         return (
-            <p onClick={ this.props.onClick }>
+            <p onClick={ this.props.onClick } onMouseDown={ this.props.onMouseDown }>
                HELLO HELLO
             </p>
         );
