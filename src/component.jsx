@@ -5,20 +5,22 @@ var React = require('react');
 module.exports = ComponentName = React.createClass({
     getDefaultProps: function() {
         return {
+          onClick: function(){
+              console.log("CLICK CLICK CLICK CLICK");
+          },
            onMouseOut: function(){},
            onMouseOver: function(){},
            onMouseDown: function(){},
            onMouseUp: function(){}
         }
     },
-    onClick: function(e){
-      console.log("where is my event at ? ",  e);
-      return e;
+    onClick: function(){
+    
     },
     render: function() {
         
         return (
-            <p onClick={ this.onClick }>
+            <p onClick={ this.props.onClick }>
                HELLO HELLO
             </p>
         );
