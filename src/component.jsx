@@ -6,26 +6,30 @@ module.exports = ComponentName = React.createClass({
     getDefaultProps: function() {
         return {
           onClick: function(){
-              console.log("CLICK CLICK CLICK CLICK");
+              console.log("onClick event : ", e);
           },
-           onMouseOut: function(){},
+           onMouseOut: function(){
+            console.log("onMouseOut event : ", e);
+           },
            onMouseOver: function(){
-            console.log("onMouseOver onMouseOver onMouseOver");
+            console.log("onMouseOver event : ", e);
            },
            onMouseDown: function(){
-            console.log("onMouseDownon MouseDownon MouseDown");
+            console.log("onMouseDown event : ", e);
            },
-           onMouseUp: function(){}
+           onMouseUp: function(){
+            console.log("onMouseUp event : ", e);
+           }
         }
     },
     onClick: function(){
-    
+     // da fuq should i do with this ?
     },
     render: function() {
         
         return (
             <p onClick={ this.props.onClick } onMouseDown={ this.props.onMouseDown } onMouseUp={ this.props.onMouseUp } onMouseOver={ this.props.onMouseOver } onMouseOut={ this.props.onMouseOut }>
-               HELLO HELLO
+               HELLO AMA Im a Component
             </p>
         );
     }
