@@ -132,17 +132,16 @@ describe("component test test ",function(){
         });
 
         it("should change innerHtml when clicked ref=p and bubble event", function(){
-            var onClickSpy = jasmine.createSpy('onClickSpy');
-                
-            var mountedComponent = TestUtils.renderIntoDocument(component({
-                onClick: onClickSpy
-            }), container);
-        
-            TestUtils.Simulate.click(mountedComponent.refs.p);
-            
-            expect(mountedComponent.refs.p.props.children).toBe("CLICK CLICK");
-            expect(onClickSpy.calls.any()).toBe(true);
+            var componets;
 
+            var mountedComponent = TestUtils.renderIntoDocument(component({}), container);
+            componets = TestUtils.scryRenderedDOMComponentsWithClass(mountedComponent, "oldClass");
+            expect(componets[0].props.className).toBe("oldClass");
+
+            TestUtils.Simulate.click(mountedComponent.refs.p);
+
+            componets = TestUtils.scryRenderedDOMComponentsWithClass(mountedComponent, "newClass");
+            expect(componets[0].props.className).toBe("newClass");
         });
     });
 

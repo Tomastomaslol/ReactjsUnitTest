@@ -21,11 +21,13 @@ module.exports = ComponentName = React.createClass({
             //console.log("onMouseUp event : ", e);
            },
            className : "helloInternet",
-           childtext : "noclick"
+           childtext : "noclick",
+           changeClassName : "oldClass"
         }
     },
     handleClick: function(){
         this.props.childtext = "CLICK CLICK";
+        this.props.changeClassName = "newClass";
         this.setState({liked: false});
     },
     render: function() {
@@ -37,7 +39,7 @@ module.exports = ComponentName = React.createClass({
                   <div>Im am a stupid div in a div lol</div>
                </div>
                <p>
-                 <p ref="p" onClick={this.handleClick}>{this.props.childtext}</p>
+                 <p ref="p" onClick={this.handleClick} className={ this.props.changeClassName }>{this.props.childtext}</p>
                </p>
             </p>
         );
