@@ -97,11 +97,11 @@ describe("component tests", function () {
             expect(componets[0]).toBeDefined();
         });
 
-        it("should add className to parent to element", function () {
+        it("should add className to parent element", function () {
             expect(componets[0]._mountDepth).toBe(1);
         });
 
-        it("should only className to one element", function () {
+        it("should only add className to one element", function () {
             expect(componets.length).toBe(1);
         });
     });
